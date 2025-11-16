@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini for Kindle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Roboto', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Custom scrollbar for better aesthetics, though might not render on all Kindle browsers */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      /* Styles for rendered markdown */
+      .prose-container h1, .prose-container h2, .prose-container h3, .prose-container h4, .prose-container h5, .prose-container h6 {
+        font-weight: bold;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+      }
+      .prose-container h1 { font-size: 1.5em; }
+      .prose-container h2 { font-size: 1.25em; }
+      .prose-container h3 { font-size: 1.1em; }
+      .prose-container p { margin-bottom: 1em; }
+      .prose-container strong { font-weight: bold; }
+      .prose-container em { font-style: italic; }
+      .prose-container a { color: #000; text-decoration: underline; }
+      .prose-container ul, .prose-container ol {
+          margin-left: 1.5rem;
+          margin-bottom: 1em;
+      }
+      .prose-container ul { list-style-type: disc; }
+      .prose-container ol { list-style-type: decimal; }
+      .prose-container pre {
+        background-color: #f0f0f0;
+        border: 1px solid #ddd;
+        padding: 1rem;
+        overflow-x: auto;
+        border-radius: 4px;
+        margin-bottom: 1em;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+      .prose-container code {
+        font-family: monospace;
+        background-color: #f0f0f0;
+        padding: 0.1em 0.3em;
+        border-radius: 2px;
+      }
+      .prose-container pre code {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+      }
+      /* Ensure last p in prose has no margin */
+      .prose-container p:last-child {
+        margin-bottom: 0;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "marked": "https://cdn.jsdelivr.net/npm/marked@13.0.2/lib/marked.esm.js"
+  }
+}
+</script>
+</head>
+  <body class="bg-white font-sans">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
